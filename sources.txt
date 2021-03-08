@@ -1,4 +1,4 @@
-forbes.com/*
+reuters.com/*
 pewresearch.org/*
 nytimes.com/*
 wsj.com/*
@@ -7,6 +7,6 @@ economist.com/*
 politico.com/*
 theatlantic.com/*
 huffpost.com/*
-reuters.com/news/us/*
 yahoo.com/news/*
 abcnews.go.com/*
+forbes.com/*

@@ -24,8 +24,8 @@ class Crawl():
 
 
     def search(self, search):
-        self.client.search(search, threads=15)
-        self.client.download(threads=15)
+        self.client.search(search, threads=14)
+        self.client.download(threads=14)
         self.results = self.client.results
         print('--------------------- Download Completed ---------------------')
 
@@ -38,8 +38,8 @@ class Crawl():
         for keyword in self.keywords:
             if keyword in dictionary:
                 relevance_index += 1
-                relevance_index /= length
-                if relevance_index >= 0.002:
+                # arbitrary cutoff 
+                if relevance_index >= 4:
                     print('relevance_index:' + str(relevance_index))
                     return True
 
@@ -64,8 +64,6 @@ class Crawl():
 
                     if self.relevance_checker(doc):
                         self.urls.append(url)
-
-
 
         self.write_urls()
 
@@ -111,9 +109,8 @@ class Crawl():
 
 
 
-# indecies = ['2020-05', '2020-10', '2020-16', '2020-24', '2020-29', '2020-34',
-#             '2020-40', '2020-45', '2020-50']
-indecies = ['2020-05']
+indecies = ['2020-05', '2020-10', '2020-16', '2020-24', '2020-29', '2020-34',
+            '2020-40', '2020-45', '2020-50']
 
 f = open("keywords.txt", "r")
 keywords = [word[:-1] for word in f]
